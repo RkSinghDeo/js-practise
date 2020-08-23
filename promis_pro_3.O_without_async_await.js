@@ -34,24 +34,20 @@ var functionArray=
   { fn: printResult,para: 4}
 
 ];
-let i=0;
-   function executeArray(funAry) 
-    
-    {
-        try
-        {
-    funAry[i].fn(funAry[i].para).then((result)=>{
+let  i=0;
 
-    console.log(result);
+   function executeArray(funAry,i=0) 
+    
+{   
     if(i<5)
     {
-        i++;
-    }
-    executeArray(functionArray);
+    funAry[i].fn(funAry[i].para).then((result)=>{
+    console.log(result);
+    executeArray(functionArray,++i);
     }
     )
-}catch{
-    alert('fuction is over !!');
+    }
 }
-} 
+
+ 
    executeArray(functionArray);
